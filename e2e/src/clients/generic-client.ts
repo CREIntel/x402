@@ -29,6 +29,16 @@ export class GenericClientProxy extends BaseProxy implements ClientProxy {
           ENDPOINT_PATH: config.endpointPath,
           EVM_NETWORK: config.evmNetwork,
           EVM_RPC_URL: config.evmRpcUrl,
+          ...(config.batchSettlement
+            ? {
+                CHANNEL_SALT: config.batchSettlement.channelSalt,
+                MULTI_REQUEST_COUNT: String(config.batchSettlement.count),
+                ...(config.batchSettlement.refundOnLast ? { REFUND_ON_LAST: 'true' } : {}),
+                ...(config.batchSettlement.voucherSignerPrivateKey
+                  ? { EVM_VOUCHER_SIGNER_PRIVATE_KEY: config.batchSettlement.voucherSignerPrivateKey }
+                  : {}),
+              }
+            : {}),
         }
       };
 

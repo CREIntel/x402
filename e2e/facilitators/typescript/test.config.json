@@ -19,7 +19,7 @@
     "erc20ApprovalGasSponsoring"
   ],
   "evm": {
-    "transferMethods": ["eip3009", "permit2", "upto"]
+    "transferMethods": ["eip3009", "permit2", "upto", "batch-settlement"]
   },
   "environment": {
     "required": [
@@ -35,7 +35,8 @@
       "SVM_NETWORK",
       "AVM_NETWORK",
       "APTOS_NETWORK",
-      "STELLAR_NETWORK"
+      "STELLAR_NETWORK",
+      "EVM_RECEIVER_AUTHORIZER_PRIVATE_KEY"
     ]
   }
 }

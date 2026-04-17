@@ -53,6 +53,7 @@ Launches an interactive CLI where you can select:
 - **Clients** - Payment-capable HTTP clients (axios, fetch, httpx, requests, etc.)
 - **Extensions** - Additional features like Bazaar discovery
 - **Protocols** - EVM, SVM, and/or Aptos networks
+- **Payment schemes** (when multiple apply) - `exact`, `upto`, or `batch-settlement`
 
 Every valid combination of your selections will be tested. For example, selecting 2 facilitators, 3 servers, and 2 clients will generate and run all compatible test scenarios.
 
@@ -127,6 +128,13 @@ FACILITATOR_EVM_PRIVATE_KEY=0x...   # EVM private key for facilitator
 FACILITATOR_SVM_PRIVATE_KEY=...     # Solana private key for facilitator
 FACILITATOR_APTOS_PRIVATE_KEY=...   # Aptos private key for facilitator (hex string)
 FACILITATOR_STELLAR_PRIVATE_KEY=... # Stellar private key for facilitator
+```
+
+Optional environment variables (batch-settlement scheme):
+
+```bash
+SERVER_EVM_RECEIVER_AUTHORIZER_PRIVATE_KEY=0x... # server-side self-managed claim/refund signer
+CLIENT_EVM_VOUCHER_SIGNER_PRIVATE_KEY=0x...      # EOA the client uses to sign vouchers 
 ```
 
 ### Account Setup Instructions
